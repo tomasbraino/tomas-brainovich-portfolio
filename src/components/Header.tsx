@@ -25,9 +25,9 @@ export const Header: React.FC<HeaderProps> = ({ onResumeClick, onContactClick })
   return (
     <header className="site-header" id="top-header">
       <nav className="nav-content" aria-label="Main Navigation">
-        <a 
-          href="#" 
-          className="brand-logo" 
+        <a
+          href="#"
+          className="brand-logo"
           id="brand-logo-link"
           onClick={(e) => {
             e.preventDefault();
@@ -54,14 +54,6 @@ export const Header: React.FC<HeaderProps> = ({ onResumeClick, onContactClick })
             onClick={(e) => scrollToSection(e, 'skills')}
           >
             Skills
-          </a>
-          <a
-            href="#learning"
-            className="nav-link"
-            id="nav-link-learning"
-            onClick={(e) => scrollToSection(e, 'learning')}
-          >
-            Learning
           </a>
           <a
             href="#contact"

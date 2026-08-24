@@ -48,7 +48,7 @@ export const experiences: ExperienceItem[] = [
   {
     id: "exp-3",
     role: "Software Development Engineer in Test (SDET)",
-    project: "Fintech CRM & Web Services",
+    project: "Fintech CRM & Web Services - Solvd",
     period: "Aug 2022 — Apr 2024",
     isFeatured: false,
     bullets: [
