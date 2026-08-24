@@ -13,8 +13,8 @@ export const contactData: ContactInfo = {
 export const experiences: ExperienceItem[] = [
   {
     id: "exp-1",
-    role: "Software Development Engineer in Test (SDET)",
-    project: "Financial Web Application",
+    role: "QA Engineer II",
+    project: "Financial Web Application - SOVOS",
     period: "Apr 2025 - Present",
     isFeatured: true,
     bullets: [
