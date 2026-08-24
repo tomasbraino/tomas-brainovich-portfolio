@@ -14,7 +14,7 @@ export const experiences: ExperienceItem[] = [
   {
     id: "exp-1",
     role: "QA Engineer II",
-    project: "Financial Web Application - SOVOS",
+    project: "Compliance Web Application - SOVOS",
     period: "Apr 2025 - Present",
     isFeatured: true,
     bullets: [
