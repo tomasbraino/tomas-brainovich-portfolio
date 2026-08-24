@@ -3,11 +3,10 @@ import { ExperienceItem, EducationItem, ContactInfo } from '../types';
 export const contactData: ContactInfo = {
   name: "Tomás Brainovich",
   title: "QA Engineer",
-  tagline: "Ensuring software excellence through rigorous automation, reliability, and precision.",
   phone: "+5493813306565",
   location: "Tucumán, AR",
   email: "tomasbraino@gmail.com",
-  linkedin: "https://linkedin.com/in/tomasbrainovich",
+  linkedin: "https://www.linkedin.com/in/tbraino/",
   github: "https://github.com/tomasbraino",
 };
 
@@ -16,18 +15,38 @@ export const experiences: ExperienceItem[] = [
     id: "exp-1",
     role: "Software Development Engineer in Test (SDET)",
     project: "Financial Web Application",
+    period: "Apr 2025 - Present",
+    isFeatured: true,
+    bullets: [
+      "Maintenance of the main product, performing manual and automated testing through different .pdf reports and Databases.",
+      "Creation and maintenance of automated test based on a Playwright framework with TypeScript, following the ScreenPlay pattern design",
+      "Developed E2E, Regression, Smoke, and Functional testing strategies.",
+      "Monitoring and executing Azure DevOps (CI/CD) pipelines to run all the tests.",
+      "Managed repositories with Azure Repos and tracked defects in Jira.",
+      "API testing using Postman and SoapUI",
+      "Performing SQL queries for data validation",
+      "Test plans and strategy creation for new feature development",
+      "Shift-left Testing with collaboration with developers"
+    ],
+    skills: ["TypeScript", "Playwright", "ScreenPlay", "Cursor", "Devin", "API Testing", "SQL", "AzureDevops", "Git", "Jira"],
+  },
+  {
+    id: "exp-2",
+    role: "Software Development Engineer in Test (SDET)",
+    project: "Financial Web Application - ITR",
     period: "May 2024 — Apr 2025",
     isFeatured: true,
     bullets: [
       "Refactored and created automated tests using Selenium, Cucumber, JUnit, and Java.",
       "Developed E2E, Regression, Smoke, and Functional testing strategies.",
-      "Configured and maintained Jenkins (CI) and monitored jobs.",
-      "Managed repositories with Git/Bitbucket and tracked defects in Jira.",
+      "Monitored and executed Jenkins (CI/CD) jobs.",
+      "Managed repositories with Bitbucket and tracked defects in Jira.",
+      "Performing SQL queries for data validation"
     ],
-    skills: ["Java", "Selenium", "Cucumber", "JUnit", "Jenkins", "Git", "Jira"],
+    skills: ["Java", "Selenium", "Cucumber", "JUnit", "SQL", "Jenkins", "Bitbucket", "Jira"],
   },
   {
-    id: "exp-2",
+    id: "exp-3",
     role: "Software Development Engineer in Test (SDET)",
     project: "Fintech CRM & Web Services",
     period: "Aug 2022 — Apr 2024",
@@ -40,7 +59,7 @@ export const experiences: ExperienceItem[] = [
     skills: ["Java", "Selenium", "TestNG", "Jenkins", "Web Services", "Manual Testing"],
   },
   {
-    id: "exp-3",
+    id: "exp-4",
     role: "Software Development Engineer in Test (SDET)",
     project: "Solvd",
     period: "May 2022 — Aug 2022",
@@ -53,7 +72,7 @@ export const experiences: ExperienceItem[] = [
     skills: ["Java", "BrowserStack", "Appium", "Android Studio", "Log Analysis"],
   },
   {
-    id: "exp-4",
+    id: "exp-5",
     role: "Software Development Engineer in Test (SDET)",
     project: "Solvd",
     period: "Dec 2021 — May 2022",
@@ -67,14 +86,19 @@ export const experiences: ExperienceItem[] = [
 ];
 
 export const techStackSkills = [
-  { name: "Java", isPrimary: true },
+  { name: "Java", isPrimary: false },
   { name: "TypeScript", isPrimary: false },
   { name: "SQL", isPrimary: false },
   { name: "Selenium", isPrimary: false },
-  { name: "TestNG", isPrimary: false },
+  { name: "Playwright", isPrimary: false },
   { name: "Cucumber", isPrimary: false },
+  { name: "JUnit", isPrimary: false },
+  { name: "TestNG", isPrimary: false },
+  { name: "Cursor", isPrimary: false },
+  { name: "Devin", isPrimary: false },
   { name: "Appium", isPrimary: false },
   { name: "Jenkins", isPrimary: false },
+  { name: "Azure DevOps", isPrimary: false },
   { name: "Git", isPrimary: false },
   { name: "Jira", isPrimary: false },
   { name: "Postman", isPrimary: false },
@@ -82,12 +106,13 @@ export const techStackSkills = [
 
 export const methodologies = [
   "Agile (Scrum/Kanban)",
+  "Shift-Left Testing",
   "CI/CD",
-  "E2E Testing",
+  "E2E Testing"
 ];
 
 export const educationData: EducationItem = {
-  degree: "Systems Analysis",
+  degree: "Systems Analyst",
   institution: "Universidad Tecnológica Nacional (UTN-FRT)",
   period: "2017 — Present",
 };
