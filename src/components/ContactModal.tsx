@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { contactData } from '../data/portfolioData';
-import { isEmailServiceConfigured, sendContactEmail } from '../services/emailService';
+import { sendContactEmail } from '../services/emailService';
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -23,8 +23,6 @@ export const ContactModal: React.FC<ContactModalProps> = ({
   const [errorMessage, setErrorMessage] = useState<string>('');
 
   if (!isOpen) return null;
-
-  const isConfigured = isEmailServiceConfigured();
 
   const handleReset = () => {
     setFormData({ name: '', email: '', message: '', honeypot: '' });
@@ -131,28 +129,12 @@ export const ContactModal: React.FC<ContactModalProps> = ({
               type="button"
               className="skill-tag"
               style={{ justifyContent: 'center', gap: '0.4rem', padding: '0.6rem' }}
-              onClick={() => onCopyText(contactData.phone, 'Phone number')}
             >
               <span className="material-symbols-outlined" style={{ fontSize: '18px', color: 'var(--primary)' }}>
                 call
               </span>
-              <span>{contactData.phone}</span>
             </button>
           </div>
-
-          {/* Development Configuration Notice */}
-          {!isConfigured && status !== 'success' && (
-            <div className="form-notice-banner" id="emailjs-config-notice">
-              <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>
-                info
-              </span>
-              <div>
-                <strong>EmailJS Setup:</strong> Add your <code>VITE_EMAILJS_SERVICE_ID</code>,{' '}
-                <code>VITE_EMAILJS_TEMPLATE_ID</code>, and <code>VITE_EMAILJS_PUBLIC_KEY</code> to{' '}
-                <code>.env</code> to activate live inbox delivery.
-              </div>
-            </div>
-          )}
 
           {/* Success State */}
           {status === 'success' ? (

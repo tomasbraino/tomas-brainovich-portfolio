@@ -3,7 +3,6 @@ import { ExperienceItem, EducationItem, ContactInfo } from '../types';
 export const contactData: ContactInfo = {
   name: "Tomás Brainovich",
   title: "QA Engineer",
-  phone: "+5493813306565",
   location: "Tucumán, AR",
   email: "tomasbraino@gmail.com",
   linkedin: "https://www.linkedin.com/in/tbraino/",
@@ -108,11 +107,12 @@ export const methodologies = [
   "Agile (Scrum/Kanban)",
   "Shift-Left Testing",
   "CI/CD",
-  "E2E Testing"
+  "E2E Testing",
+  "DevOps"
 ];
 
 export const educationData: EducationItem = {
   degree: "Systems Analyst",
   institution: "Universidad Tecnológica Nacional (UTN-FRT)",
-  period: "2017 — Present",
+  period: "In progress",
 };

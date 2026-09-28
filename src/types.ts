@@ -26,7 +26,6 @@ export interface ContactInfo {
   name: string;
   title: string;
   tagline?: string;
-  phone: string;
   location: string;
   email: string;
   linkedin: string;
