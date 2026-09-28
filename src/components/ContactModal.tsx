@@ -91,7 +91,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
             <span className="material-symbols-outlined" style={{ color: 'var(--primary)' }}>
               mail
             </span>
-            <span>Get in Touch with Tomás</span>
+            <span>Get in Touch</span>
           </div>
           <button
             type="button"
@@ -105,21 +105,6 @@ export const ContactModal: React.FC<ContactModalProps> = ({
         </div>
 
         <div className="modal-body">
-          {/* Quick contact button */}
-          <div style={{ marginBottom: '1.5rem' }}>
-            <button
-              type="button"
-              className="skill-tag"
-              style={{ width: '100%', justifyContent: 'center', gap: '0.5rem', padding: '0.65rem' }}
-              onClick={() => onCopyText(contactData.email, 'Email address')}
-              title="Click to copy email address"
-            >
-              <span className="material-symbols-outlined" style={{ fontSize: '18px', color: 'var(--primary)' }}>
-                mail
-              </span>
-              <span>{contactData.email}</span>
-            </button>
-          </div>
 
           {/* Success State */}
           {status === 'success' ? (
@@ -248,7 +233,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                   id="contact-msg"
                   required
                   disabled={status === 'sending'}
-                  placeholder="Let's discuss automated testing, QA leadership, or upcoming opportunities..."
+                  placeholder="Write your message here..."
                   className="form-textarea"
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
