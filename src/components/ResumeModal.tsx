@@ -21,7 +21,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({
   const handleDownloadText = () => {
     const textContent = `
 ${contactData.name.toUpperCase()} - ${contactData.title.toUpperCase()}
-Email: ${contactData.email} | Phone: ${contactData.phone} | Location: ${contactData.location}
+Email: ${contactData.email} | Location: ${contactData.location}
 LinkedIn: ${contactData.linkedin} | GitHub: ${contactData.github}
 
 SUMMARY:
@@ -94,7 +94,6 @@ ${educationData.degree} - ${educationData.institution} (${educationData.period})
             </p>
             <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap', fontSize: '13px', color: 'var(--on-surface-variant)', fontFamily: 'var(--font-mono)' }}>
               <span>📍 {contactData.location}</span>
-              <span>📞 {contactData.phone}</span>
               <span>✉️ {contactData.email}</span>
             </div>
             <p style={{ marginTop: '0.75rem', color: 'var(--on-surface-variant)', fontSize: '14px', maxWidth: '580px', margin: '0.75rem auto 0' }}>

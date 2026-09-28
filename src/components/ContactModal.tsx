@@ -105,34 +105,19 @@ export const ContactModal: React.FC<ContactModalProps> = ({
         </div>
 
         <div className="modal-body">
-          {/* Quick contact buttons */}
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(2, 1fr)',
-              gap: '0.75rem',
-              marginBottom: '1.5rem',
-            }}
-          >
+          {/* Quick contact button */}
+          <div style={{ marginBottom: '1.5rem' }}>
             <button
               type="button"
               className="skill-tag"
-              style={{ justifyContent: 'center', gap: '0.4rem', padding: '0.6rem' }}
+              style={{ width: '100%', justifyContent: 'center', gap: '0.5rem', padding: '0.65rem' }}
               onClick={() => onCopyText(contactData.email, 'Email address')}
+              title="Click to copy email address"
             >
               <span className="material-symbols-outlined" style={{ fontSize: '18px', color: 'var(--primary)' }}>
                 mail
               </span>
               <span>{contactData.email}</span>
-            </button>
-            <button
-              type="button"
-              className="skill-tag"
-              style={{ justifyContent: 'center', gap: '0.4rem', padding: '0.6rem' }}
-            >
-              <span className="material-symbols-outlined" style={{ fontSize: '18px', color: 'var(--primary)' }}>
-                call
-              </span>
             </button>
           </div>
 
