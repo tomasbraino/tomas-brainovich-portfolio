@@ -25,7 +25,7 @@ export interface EducationItem {
 export interface ContactInfo {
   name: string;
   title: string;
-  tagline: string;
+  tagline?: string;
   phone: string;
   location: string;
   email: string;
