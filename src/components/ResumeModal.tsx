@@ -1,5 +1,6 @@
 import React from 'react';
 import { contactData, experiences, techStackSkills, methodologies, educationData } from '../data/portfolioData';
+import html2pdf from 'html2pdf.js';
 
 interface ResumeModalProps {
   isOpen: boolean;
@@ -18,41 +19,25 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({
     window.print();
   };
 
-  const handleDownloadText = () => {
-    const textContent = `
-${contactData.name.toUpperCase()} - ${contactData.title.toUpperCase()}
-Email: ${contactData.email} | Location: ${contactData.location}
-LinkedIn: ${contactData.linkedin} | GitHub: ${contactData.github}
+  const handleDownloadPDF = async () => {
+    const element = document.getElementById('resume-printable-area');
+    if (!element) return;
 
-SUMMARY:
-${contactData.tagline}
+    const opt: any = {
+      margin:       0.5, // top, left, bottom, right
+      filename:     'Tomas_Brainovich_QA_Engineer_Resume.pdf',
+      image:        { type: 'jpeg', quality: 0.98 },
+      html2canvas:  { scale: 2, useCORS: true },
+      jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
 
-EXPERIENCE:
-${experiences.map(exp => `
-* ${exp.role} - ${exp.project} (${exp.period})
-${exp.bullets.map(b => `  - ${b}`).join('\n')}
-`).join('\n')}
-
-TECHNICAL SKILLS:
-${techStackSkills.map(s => s.name).join(', ')}
-
-METHODOLOGIES:
-${methodologies.join(', ')}
-
-EDUCATION:
-${educationData.degree} - ${educationData.institution} (${educationData.period})
-    `.trim();
-
-    const blob = new Blob([textContent], { type: 'text/plain;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = `Tomas_Brainovich_QA_Engineer_Resume.txt`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
-    onCopyText('Resume downloaded', 'Notification');
+    try {
+      await html2pdf().set(opt).from(element).save();
+      onCopyText('Resume downloaded as PDF', 'Notification');
+    } catch (error) {
+      console.error("Failed to generate PDF:", error);
+      onCopyText('Failed to download PDF', 'Error');
+    }
   };
 
   return (
@@ -172,10 +157,10 @@ ${educationData.degree} - ${educationData.institution} (${educationData.period})
             type="button"
             className="btn-primary-action"
             id="download-resume-action-btn"
-            onClick={handleDownloadText}
+            onClick={handleDownloadPDF}
           >
             <span className="material-symbols-outlined">download</span>
-            <span>Download Copy</span>
+            <span>Download PDF Copy</span>
           </button>
         </div>
       </div>
