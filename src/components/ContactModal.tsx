@@ -195,14 +195,15 @@ export const ContactModal: React.FC<ContactModalProps> = ({
 
               <div className="form-group">
                 <label className="form-label" htmlFor="contact-name">
-                  Your Name *
+                  Your Name
                 </label>
                 <input
                   id="contact-name"
                   type="text"
+                  autoComplete="name"
+                  maxLength={100}
                   required
                   disabled={status === 'sending'}
-                  placeholder="e.g. John Doe"
                   className="form-input"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -210,15 +211,15 @@ export const ContactModal: React.FC<ContactModalProps> = ({
               </div>
 
               <div className="form-group">
-                <label className="form-label" htmlFor="contact-email">
-                  Your Email *
+                <label className="form-label" htmlFor="contact-email" >
+                  Your Email
                 </label>
                 <input
                   id="contact-email"
                   type="email"
+                  autoComplete="email"
                   required
                   disabled={status === 'sending'}
-                  placeholder="e.g. name@company.com"
                   className="form-input"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -232,6 +233,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                 <textarea
                   id="contact-msg"
                   required
+                  maxLength={1000}
                   disabled={status === 'sending'}
                   placeholder="Write your message here..."
                   className="form-textarea"
