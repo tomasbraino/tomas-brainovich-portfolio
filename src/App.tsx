@@ -1,17 +1,41 @@
 import React, { useState } from 'react';
+import { renderToString } from 'react-dom/server';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { Experience } from './components/Experience';
 import { SkillsSection } from './components/SkillsSection';
 import { Footer } from './components/Footer';
-import { ResumeModal } from './components/ResumeModal';
+import { ResumeDocument } from './components/ResumeDocument';
+import html2pdf from 'html2pdf.js';
 import { ContactModal } from './components/ContactModal';
 import { Toast } from './components/Toast';
 
 export default function App() {
-  const [resumeOpen, setResumeOpen] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
+
+  const handleDownloadPDF = async () => {
+    showToast('Generating PDF...');
+
+    // Render the React component to an HTML string
+    const htmlString = renderToString(<ResumeDocument />);
+
+    const opt: any = {
+      margin:       0.5, // top, left, bottom, right
+      filename:     'Tomas_Brainovich_QA_Engineer_Resume.pdf',
+      image:        { type: 'jpeg', quality: 0.98 },
+      html2canvas:  { scale: 2, useCORS: true },
+      jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+
+    try {
+      await html2pdf().set(opt).from(htmlString).save();
+      showToast('Resume downloaded successfully!');
+    } catch (error) {
+      console.error("Failed to generate PDF:", error);
+      showToast('Failed to download PDF');
+    }
+  };
 
   const showToast = (message: string) => {
     setToastMessage(message);
@@ -39,14 +63,14 @@ export default function App() {
     <div className="portfolio-app-root" id="portfolio-app-root">
       {/* Top Sticky Navigation */}
       <Header
-        onResumeClick={() => setResumeOpen(true)}
+        onResumeClick={handleDownloadPDF}
         onContactClick={() => setContactOpen(true)}
       />
 
       {/* Main Sections Content Container */}
       <main className="main-content" id="main-content-wrapper">
         <Hero
-          onResumeDownload={() => setResumeOpen(true)}
+          onResumeDownload={handleDownloadPDF}
           onContactClick={() => setContactOpen(true)}
           onCopyText={handleCopyText}
         />
@@ -58,13 +82,6 @@ export default function App() {
 
       {/* Footer */}
       <Footer onContactClick={() => setContactOpen(true)} />
-
-      {/* Modals & Notifications */}
-      <ResumeModal
-        isOpen={resumeOpen}
-        onClose={() => setResumeOpen(false)}
-        onCopyText={handleCopyText}
-      />
 
       <ContactModal
         isOpen={contactOpen}

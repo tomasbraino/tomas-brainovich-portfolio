@@ -73,7 +73,7 @@ export const Header: React.FC<HeaderProps> = ({ onResumeClick, onContactClick })
           onClick={onResumeClick}
           aria-label="View Tomás Brainovich's Resume"
         >
-          Resume
+          Download Resume
         </button>
 
         {/* Mobile Hamburger Button */}
@@ -130,7 +130,7 @@ export const Header: React.FC<HeaderProps> = ({ onResumeClick, onContactClick })
               onResumeClick();
             }}
           >
-            View Resume
+            Download Resume
           </button>
         </div>
       )}
